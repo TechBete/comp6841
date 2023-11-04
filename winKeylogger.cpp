@@ -1,5 +1,6 @@
 // Keylogger hook code S12 youtube video: https://www.youtube.com/watch?v=ceUVxeq4Eqk&ab_channel=S12-MalwareDevelopment
 // email functionality written by z5410231
+// base win api function done by z5410231 check references for winapi link
 
 #include <winsock2.h>
 #include <windows.h>
